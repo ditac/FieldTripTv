@@ -6,16 +6,27 @@
 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
 <script>
 var myPlayer;
+var played = false;
 $(document).ready(function(){
 myPlayer = _V_("my_video_1");
+$(".next").click(function(){
+	if(played)
+	{
+		myPlayer.pause();
+		played = false;
+	}
+	else
+	{
+		played = true;
+		myPlayer.play();
+	}
+	});
 });
+
 </script>
 <style>
 body{
-background-image: url("back.jpg");
-background-repeat:no-repeat;
-	background-color:whiteSmoke;
-	color:white;
+background-image: -webkit-linear-gradient(top, #1F1E24 0%, #000000 100%);
 font-family: Georgia, "Times New Roman", serif;
 font-size: 18px;
 line-height: 30px;
@@ -30,28 +41,37 @@ line-height: 30px;
 color: #666;
 
 }
+#my_video_1{
+	position:absolute;
+	left:300px;
+	top:100px;
+}
 #youtube-player-container{
 text-align:"center";
-	
 }
 .container{
-margin: 0 auto;
-width: 615px;
-padding: 90px;
-text-align:"center";
+background-repeat:no-repeat;
+background-image: url("BlankSlide.jpg");
+width:1200px;
+height:800px;
+}
+.next{
+	position:absolute;
+	left:114px;
+	top:200px;
+	width:50px;
+	height:25px;
 }
 </style>
 <script src="http://vjs.zencdn.net/c/video.js"></script>
 </head>
   <body>
 <div class="container">
-<div id='youtube-player-container'> </div>
 <video id="my_video_1" class="video-js vjs-default-skin" controls
   preload="auto" width="640" height="330" 
   data-setup="{}">
   <source src="video/Whale Shark.mp4" type='video/mp4'>
 </video>
-</div>
 <script>
 $("body").keypress(function(e){
 	if(e.which == 97){
@@ -63,6 +83,10 @@ $("body").keypress(function(e){
 		e.preventDefault();
 	}	
 });
+
 </script>
-  </body>
+</div>
+<div class="next"> </div>
+ </body>
 </html>
+
