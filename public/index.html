@@ -8,10 +8,12 @@
 var myPlayer;
 var played = false;
 $(document).ready(function(){
-myPlayer = _V_("my_video_1");
+myPlayer = _V_("my_video_1",{ "controls": false, "autoplay": false, "preload": "auto" });
 $(".next").click(function(){
 	if(played)
 	{
+		$("#my_video_1").hide();
+		$("#tvFrame").show();
 		myPlayer.pause();
 		played = false;
 	}
@@ -19,8 +21,12 @@ $(".next").click(function(){
 	{
 		played = true;
 		myPlayer.play();
+		$("#tvFrame").hide();
+		$("#my_video_1").show();
 	}
 	});
+$("#my_video_1").hide();
+$("#tvFrame").show();
 });
 
 </script>
@@ -45,6 +51,13 @@ color: #666;
 	position:absolute;
 	left:300px;
 	top:100px;
+}
+#tvFrame{
+	position:absolute;
+	left:290px;
+	top:70px;
+	width:680px;
+	height:380px;
 }
 #youtube-player-container{
 text-align:"center";
@@ -72,6 +85,8 @@ height:800px;
   data-setup="{}">
   <source src="video/Whale Shark.mp4" type='video/mp4'>
 </video>
+<iframe src="http://social.robhemsley.webfactional.com" id="tvFrame">
+</iframe>
 <script>
 $("body").keypress(function(e){
 	if(e.which == 97){
