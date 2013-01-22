@@ -1,3 +1,4 @@
 == Field Trip TV
-    Field Trip TV allows you to find events happening around you, based on your TV habits. It matches people with similar media tastes and lets them hangout with real people in the real world.
+    Field Trip TV allows you to find events happening around you, based on your TV habits.
+    It matches people with similar media tastes and lets them hangout with real people in the real world.
 
